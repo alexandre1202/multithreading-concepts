@@ -2,14 +2,13 @@ package br.com.aab.threads.synchronizers.cyclicbarrier;
 
 import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Latch -> a single thread can wait for onther threads
- * Cyclic Barrier -> multiple threads can wit for each other
+ * Latch -> a single thread can wait for other threads
+ * Cyclic Barrier -> multiple threads can wait for each other
  *
  * A cyclicBarrier is used in situations where you want to create a group of tasks to perform work
  * in a concurrent manner + wait until they are all finished before moving on the the next step
