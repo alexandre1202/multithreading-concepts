@@ -1,5 +1,6 @@
 package br.com.aab.threads.timeslicing;
 
+import java.util.concurrent.ExecutorCompletionService;
 import java.util.stream.Stream;
 
 public class RunnableLambdaBasic {
