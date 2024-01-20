@@ -51,7 +51,10 @@ class DecrementExchanger implements Runnable {
 }
 public class ExchangerExample {
     /**
-     * Exchanger allow two or more threads exchange objects
+     * Exchanger allow two threads exchange objects exclusively but not for multi-thread
+     *          ---> Object #1 --->
+     * Thread 1 ---> Object #1 --->  Thread 2
+     *          ---> Object #1 --->
      */
 
     public static void main(String[] args) {
