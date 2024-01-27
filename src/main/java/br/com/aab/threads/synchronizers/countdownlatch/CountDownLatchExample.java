@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
  *   will block until the count reaches zero
  * - Other tasks may call countDown() on the object to reduce the count, presumably when a task finishes
  *   its job
- * - if you need a version that resets the count, youy can use a Cyclic Barrier instead
+ * - if you need a version that resets the count, you can use a Cyclic Barrier instead
  * - the tasks that call countDown() are not blocked when they make that call. Only the call to await()
  *   is blocked until the count reaches zero
  *
