@@ -1,4 +1,4 @@
-package br.com.mpogrebinsky.threadcreation;
+package br.com.mpogrebinsky.basicthreadcreation;
 
 public class WorkerAndBasicNewThread {
     public static void main(String[] args) throws InterruptedException {
