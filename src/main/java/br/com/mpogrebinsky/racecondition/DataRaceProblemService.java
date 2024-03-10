@@ -3,24 +3,17 @@ package br.com.mpogrebinsky.racecondition;
 public class DataRaceProblemService {
     public static void main(String[] args) {
         SharedObject sharedObject = new SharedObject();
-        Thread thread1 = new Thread(() -> {
-            for (int i = 0; i < Integer.MAX_VALUE; i++) {
-                sharedObject.increment();
-            }
-        });
+        new Thread(() -> {
+            for (int i = 0; i < Integer.MAX_VALUE; i++) sharedObject.increment();
+        }).start();
 
-        Thread thread2 = new Thread(() -> {
-            for (int i = 0; i < Integer.MAX_VALUE; i++) {
-                sharedObject.checkDataRace();
-            }
-        });
-
-        thread1.start();
-        thread2.start();
+        new Thread(() -> {
+            for (int i = 0; i < Integer.MAX_VALUE; i++) sharedObject.checkDataRace();
+        }).start();
     }
     private static class SharedObject {
-        private volatile int x = 0;    //volatile solve the Data Race but with a performance penalty
-        private volatile int y = 0;    //volatile solve the Data Race but with a performance penalty
+        private int x = 0;    //volatile solve the Data Race but with a performance penalty
+        private int y = 0;    //volatile solve the Data Race but with a performance penalty
         public void increment() {
             x++;
             y++;
