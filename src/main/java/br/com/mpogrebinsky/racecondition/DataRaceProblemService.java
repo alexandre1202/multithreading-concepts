@@ -19,8 +19,8 @@ public class DataRaceProblemService {
         thread2.start();
     }
     private static class SharedObject {
-        private volatile int x = 0;    //volatile solve the Data Race and increase the Latency
-        private volatile int y = 0;    //volatile solve the Data Race and increase the Latency
+        private volatile int x = 0;    //volatile solve the Data Race but with a performance penalty
+        private volatile int y = 0;    //volatile solve the Data Race but with a performance penalty
         public void increment() {
             x++;
             y++;
