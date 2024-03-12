@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 /**
  * This is used to synchronize one or more tasks by forcing them to wait for the completion of a set of
  * operations being performed by other tasks
- * - you give a initial count to a CountDownLatch object, and any task that call await() on the object
+ * - you give an initial count to a CountDownLatch object, and any task that call await() on the object
  *   will block until the count reaches zero
  * - Other tasks may call countDown() on the object to reduce the count, presumably when a task finishes
  *   its job
