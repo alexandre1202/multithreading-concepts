@@ -12,7 +12,7 @@ public class Main {
  
         Thread thread2 = new Thread(() -> {
             while (true) {
-                sharedObject.increment();
+                sharedObject.decrement();
             }
         });
  
