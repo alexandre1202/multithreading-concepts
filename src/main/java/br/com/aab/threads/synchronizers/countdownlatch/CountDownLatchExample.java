@@ -40,7 +40,7 @@ class Worker implements Runnable {
     private void doWork() {
         try {
             System.out.println("Thead with ID " + this.id
-                    + " starts working on Thread Id " + Thread.currentThread().threadId());
+                    + " starts working on Thread Id " + Thread.currentThread().getId());
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -49,6 +49,27 @@ class Worker implements Runnable {
 }
 public class CountDownLatchExample {
     public static void main(String[] args) {
+        //countingWithSingleThread();
+        countingWithMultipleThreads();
+    }
+
+    private static void countingWithMultipleThreads() {
+        CountDownLatch latchMultipleThreads = new CountDownLatch(5);
+        ExecutorService threadPool = Executors.newFixedThreadPool(5);
+        for (int i = 0; i < 5; i++) {
+            threadPool.execute(new Worker(i, latchMultipleThreads));
+        }
+        try {
+            latchMultipleThreads.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("All tasks for multi thread have been finished ...");
+        threadPool.shutdown();
+
+    }
+
+    private static void countingWithSingleThread() {
         CountDownLatch latch = new CountDownLatch(5);
         ExecutorService service = Executors.newSingleThreadExecutor();
         for (int i = 0; i < 5; i++) {
@@ -59,7 +80,7 @@ public class CountDownLatchExample {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("All tasks have been finished ...");
+        System.out.println("All tasks with the same thread have been finished ...");
         service.shutdown();
     }
 }
