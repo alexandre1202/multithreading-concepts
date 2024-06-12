@@ -12,7 +12,7 @@ class Process {
     }
 
     public void consume() throws InterruptedException {
-        Thread.sleep(Duration.ofSeconds(1));
+        Thread.sleep(Duration.ofSeconds(1L).toMillis());
         synchronized (this) {
             System.out.println("Consume method is executed...");
             notify();    // it means that the producer can continue with the execution

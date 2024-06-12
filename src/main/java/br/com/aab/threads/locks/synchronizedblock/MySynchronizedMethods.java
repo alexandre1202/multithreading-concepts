@@ -22,7 +22,7 @@ public class MySynchronizedMethods {
                     System.out.println("Value [" + counter + "] in production...");
                     lock.notify();
                 }
-                Thread.sleep(duration);
+                Thread.sleep(duration.toMillis());
             }
         }
     }
@@ -38,7 +38,7 @@ public class MySynchronizedMethods {
                     System.out.println("Consuming the value [" + counter + "]");
                     lock.notify();
                 }
-                Thread.sleep(duration);
+                Thread.sleep(duration.toMillis());
             }
         }
     }

@@ -43,7 +43,7 @@ class Worker implements Runnable {
     private void doWork() {
         try {
             System.out.println("Thead with ID " + this.id
-                    + " starts working on Thread Id " + Thread.currentThread().threadId());
+                    + " starts working on Thread Id " + Thread.currentThread().getId());
             Thread.sleep(random.nextInt(3000));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
